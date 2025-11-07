@@ -1,17 +1,70 @@
+// Place your key bindings in this file to override the defaults
 [
- {
+  // -------- Vim 프리픽스 느낌 유지 --------
+  {
+    "key": "ctrl+w",
+    "command": "vim.remap",
+    "when": "editorTextFocus && vim.mode == 'Normal'",
+    "args": { "after": ["<C-w>"] }
+  },
+
+  // -------- 에디터 그룹 간 이동 --------
+  {
+    "key": "ctrl+w h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+w j",
+    "command": "workbench.action.focusPanel",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+
+  // -------- 터미널 / 패널 포커스에서 이동 --------
+  // 터미널 → 에디터
+  {
     "key": "ctrl+w k",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
+  {
+    "key": "ctrl+w k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "panelFocus && !terminalFocus"
+  },
+
+  // 터미널 분할 pane 사이 이동
   {
     "key": "ctrl+w h",
     "command": "workbench.action.terminal.focusPreviousPane",
     "when": "terminalFocus"
   },
   {
-    "key": "ctrl+w l", 
+    "key": "ctrl+w l",
     "command": "workbench.action.terminal.focusNextPane",
     "when": "terminalFocus"
+  },
+
+  // 패널에서 아래쪽 포커스 유지 (다시 패널로)
+  {
+    "key": "ctrl+w j",
+    "command": "workbench.action.focusPanel",
+    "when": "panelFocus && !terminalFocus"
+  },
+
+  // -------- 탭 닫기 (⌘W 기본 기능 대체) --------
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeActiveEditor"
   }
 ]
